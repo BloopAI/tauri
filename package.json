@@ -68,7 +68,6 @@
     "format:check": "prettier --check ./package.json ./tauri.js"
   },
   "optionalDependencies": {
-    "@tauri-apps/cli-win32-x64-msvc": "1.4.0",
     "@tauri-apps/cli-darwin-x64": "1.4.0",
     "@tauri-apps/cli-linux-x64-gnu": "1.4.0",
     "@tauri-apps/cli-darwin-arm64": "1.4.0",
