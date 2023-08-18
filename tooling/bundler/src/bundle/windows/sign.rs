@@ -23,6 +23,9 @@ pub struct SignParams {
   pub certificate_thumbprint: String,
   pub timestamp_url: Option<String>,
   pub tsp: bool,
+  pub csp: Option<String>,
+  pub cert_path: Option<PathBuf>,
+  pub key_id: Option<String>,
 }
 
 // sign code forked from https://github.com/forbjok/rust-codesign
@@ -121,6 +124,18 @@ pub fn sign_command(path: &str, params: &SignParams) -> crate::Result<(Command, 
     }
   }
 
+  if let Some(ref csp) = params.csp {
+    cmd.args(["/csp", csp]);
+  }
+
+  if let Some(ref cert_path) = params.cert_path {
+    cmd.args(["/f", &cert_path.to_string_lossy()]);
+  }
+
+  if let Some(ref key_id) = params.key_id {
+    cmd.args(["/k", key_id]);
+  }
+
   cmd.arg(path);
 
   Ok((cmd, signtool))
@@ -167,6 +182,9 @@ impl Settings {
         .as_ref()
         .map(|url| url.to_string()),
       tsp: self.windows().tsp,
+      csp: self.windows().csp.clone(),
+      cert_path: self.windows().certificate_path.clone(),
+      key_id: self.windows().key_id.clone(),
     }
   }
 }

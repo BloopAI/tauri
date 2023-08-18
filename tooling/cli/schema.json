@@ -147,8 +147,11 @@
           "targets": "all",
           "windows": {
             "allowDowngrades": true,
+            "certificatePath": null,
             "certificateThumbprint": null,
+            "csp": null,
             "digestAlgorithm": null,
+            "keyId": null,
             "nsis": null,
             "timestampUrl": null,
             "tsp": false,
@@ -286,8 +289,11 @@
             "targets": "all",
             "windows": {
               "allowDowngrades": true,
+              "certificatePath": null,
               "certificateThumbprint": null,
+              "csp": null,
               "digestAlgorithm": null,
+              "keyId": null,
               "nsis": null,
               "timestampUrl": null,
               "tsp": false,
@@ -1158,8 +1164,11 @@
           "description": "Configuration for the Windows bundle.",
           "default": {
             "allowDowngrades": true,
+            "certificatePath": null,
             "certificateThumbprint": null,
+            "csp": null,
             "digestAlgorithm": null,
+            "keyId": null,
             "nsis": null,
             "timestampUrl": null,
             "tsp": false,
@@ -1456,6 +1465,24 @@
             {
               "type": "null"
             }
+          ]
+        },
+        "csp": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "certificatePath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "keyId": {
+          "type": [
+            "string",
+            "null"
           ]
         }
       },

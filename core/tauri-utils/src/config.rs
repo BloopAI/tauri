@@ -606,6 +606,9 @@ pub struct WindowsConfig {
   pub wix: Option<WixConfig>,
   /// Configuration for the installer generated with NSIS.
   pub nsis: Option<NsisConfig>,
+  pub csp: Option<String>,
+  pub certificate_path: Option<PathBuf>,
+  pub key_id: Option<String>,
 }
 
 impl Default for WindowsConfig {
@@ -620,6 +623,9 @@ impl Default for WindowsConfig {
       allow_downgrades: true,
       wix: None,
       nsis: None,
+      csp: None,
+      certificate_path: None,
+      key_id: None,
     }
   }
 }

@@ -347,6 +347,12 @@ pub struct WindowsSettings {
   ///
   /// /// The default value of this flag is `true`.
   pub allow_downgrades: bool,
+  /// CSP containing the Private Key Container.
+  pub csp: Option<String>,
+  /// Path to a certificate file.
+  pub certificate_path: Option<PathBuf>,
+  /// Signing Key ID.
+  pub key_id: Option<String>,
 }
 
 impl Default for WindowsSettings {
@@ -362,6 +368,9 @@ impl Default for WindowsSettings {
       webview_install_mode: Default::default(),
       webview_fixed_runtime_path: None,
       allow_downgrades: true,
+      csp: None,
+      certificate_path: None,
+      key_id: None,
     }
   }
 }
